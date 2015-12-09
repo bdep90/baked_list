@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
 
-  resources :users
-  resources :bakeries do
+  resources :users do
     resources :sweets, only: [:index, :show, :new, :create, :destroy]
   end
 

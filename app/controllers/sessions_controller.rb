@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   end
 
-  # end session
+  # destroy
   def destroy
 
   end

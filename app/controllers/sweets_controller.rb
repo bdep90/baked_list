@@ -1,6 +1,6 @@
 class SweetsController < ApplicationController
 
-  # lists all sweets made by bakery on bakery show
+  # lists all sweets on user show
   def index
 
   end
@@ -10,17 +10,17 @@ class SweetsController < ApplicationController
 
   end
 
-  # saves/posts sweets to bakery show
+  # saves/posts sweets to user show
   def create
 
   end
 
-  # displays sweets on bakery show
+  # displays sweets on user show
   def show
 
   end
 
-  # deletes sweets from bakery show
+  # deletes sweets from user show
   def destroy
 
   end

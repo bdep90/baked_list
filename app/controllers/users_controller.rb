@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   end
 
-  # displays user and favorite baked goods
+  # displays user and favorite sweets
   def show
 
   end
