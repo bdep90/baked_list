@@ -1,0 +1,14 @@
+<!-- sign in form -->
+<div id="signin">
+  <%= form_for(@user html: {multipart: true}) do |f| %>
+
+    Username: <%= f.text_field :user_name, "hjf" %>
+    Password: <%= f.password_field :password, "ghj" %>
+    Avatar URL: <%= f.url_field :avatar, "geyt" %>
+    Upload Avatar: <%= f.label :image %>
+                  <%= f.file_field :image %>
+
+  <%= submit_tag "SUBMIT" %>
+  <% end %>
+
+</div>

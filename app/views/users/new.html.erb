@@ -1,0 +1,33 @@
+<div id="new-user-form">
+  <!-- errors -->
+  <div id="user-errors">
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+
+  <!-- form -->
+  <table class="new-user-form">
+    <%= form_for(@user, html: {multipart: true}) do |f| %>
+    <tr>
+      <td class="input-right">Username:</td>
+      <td class="input"><%= f.text_field :user_name, :placeholder => "must be between 6 and 10 characters long"%></td>
+    </tr>
+    <tr>
+      <td class="input-right">Password:</td>
+      <td class="input"><%= f.password_field :password, :placeholder => "must be between 6 and 12  characters long"%></td>
+    </tr>
+    <tr>
+      <td class="input-right">Password Confirmation:</td>
+      <td class="input">
+        <%= f.password_field :password_confirmation, :placeholder => "please verify password" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="input-right">Avatar:</td>
+      <td class="input"><%= f.label :image %><%= f.file_field :image %></td>
+    </tr>
+  </table>
+  <%= f.submit "SUBMIT" %>
+  <% end %>
+</div>

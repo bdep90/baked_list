@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
   # displays user and favorite sweets
   def show
-    @user = current_user
-    @user_sweets = @user.sweets
+    @user = User.find(params[:id])
+    # @user_sweets = @user.sweets
   end
 
   # creates user
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @User
+      redirect_to @user
     else
       render :new
     end

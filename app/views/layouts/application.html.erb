@@ -5,10 +5,32 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Puritan:400,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<%= yield %>
-
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-left">
+        <a href="/"><img src="http://www.endlessicons.com/wp-content/uploads/2012/09/cupcake-icon-614x460.png" height="80px" width="100px"><img/></a>
+      </div>
+      <div class="nav-right">
+        <ul id="nav-right">
+          <li class="active"><a href="#">SIGN UP</a></li>
+          <li class="active"><a href="#">SIGN IN</a></li>
+          <!-- <li class="active"><a href="#">Ideas</a></li>
+          <li class="active"><a href="#">Ideas</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="body-container">
+    <%= yield %>
+  </div>
+  <footer>
+    <div class="container">
+      &copy;BakedList 2015
+    </div>
+  </footer>
 </body>
 </html>
