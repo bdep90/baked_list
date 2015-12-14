@@ -1,0 +1,49 @@
+<div id="user-show">
+  <!-- flash -->
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <div id="user-info-right">
+    <!-- user info -->
+    <div>
+    <a href="<%="/users/#{@user.id}/edit"%>"><%= image_tag(@user.image, size: "120x120") %></a>
+    </div>
+    <div>
+      <%= link_to "Hi #{@user.user_name}!", edit_user_path, id: "edit-user-link" %>
+    </div>
+  </div>
+
+  <!-- sweets index --><!-- create new sweet -->
+  <div><%= link_to "*SWEETS*", new_user_sweet_path(@user), id: "new-sweet-link" %></div>
+
+  <table id="sweets-container">
+    <% @user_sweets.each do |sweet| %>
+    <tr>
+      <th><u></u></th>
+      <th><u>SWEET</u></th>
+      <th><u>DEETS</u></th>
+      <th><u>RATING</u></th>
+      <th><u>BAKERY</u></th>
+      <th><u>LOCATION</u></th>
+    </tr>
+    <tr>
+      <td><%= image_tag(sweet.image, size: "140x160") %></td>
+      <td><%= sweet.name %></td>
+      <td><%= sweet.description %></td>
+      <td><%= sweet.rating %></td>
+      <td><%= sweet.bakery_name %></td>
+      <td><%= sweet.bakery_location %></td>
+      <td><%= link_to "X", "/users/#{current_user.id}/sweets/#{sweet.id}", method: :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <div class="slideshwo">
+   <% @user_sweets.each do |sweet| %>
+   <div><%= sweet.name %></div>
+   <a href="#"><%= image_tag(sweet.image, size: "80x100") %></a>
+   <% end %>
+  </div>
+
+</div>

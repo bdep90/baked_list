@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   # new session
   def new
-
+    # current_user=self.user_id in create
   end
 
   # instance of session
@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to user
+      flash[:notice] = "Welcome Back, #{current_user.user_name}!"
     else
       redirect_to("/signin")
     end

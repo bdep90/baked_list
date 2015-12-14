@@ -6,9 +6,14 @@
     <% end %>
   </div>
 
+  <!-- delete account -->
+  <p>
+    <%= link_to "DELETE ACCT", user_path(current_user), method: :delete, id: "new-sweet-link" %>
+  </p>
+
   <!-- form -->
-  <%= form_for(@user, html: {multipart: true}) do |f| %>
-  <table class="new-user-form">
+  <%= form_for @user, url: user_path(@user), html: {multipart: true}, method: :put do |f| %>
+  <table class="edit-user-form">
     <tr>
       <td class="column1">Username:</td>
       <td class="input"><%= f.text_field :user_name, :placeholder => "must be between 6 and 10 characters long"%></td>

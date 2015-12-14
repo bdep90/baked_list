@@ -1,0 +1,47 @@
+<div class="form">
+  <%# TODO: add errors & set unique messages for errors %>
+  <div class="errors">
+    <% @sweet.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+
+  <!-- form -->
+  <%= form_for(:sweet, url: user_sweets_path, html: {multipart: true}) do |f| %>
+  <table class="new-sweet-form">
+    <tr>
+      <td class="column1">Name:</td>
+      <td class="input"><%= f.text_field :name, :placeholder => "Chocolate Lava Cake"%></td>
+    </tr>
+    <tr>
+      <td class="column1">Description:</td>
+      <td class="input"><%= f.text_field :description, :placeholder => "moist triple chocolate layers for days"%></td>
+    </tr>
+    <tr>
+      <td class="column1">Bakery Name:</td>
+      <td class="input">
+        <%= f.text_field :bakery_name, :placeholder => "Betty's Baked Goods" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="column1">Bakery Location:</td>
+      <td class="input">
+        <%= f.text_field :bakery_location, :placeholder => "16 E 23rd St. (Manhattan)" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="column1">Image:</td>
+      <td class="input"><%= f.file_field :image %></td>
+    </tr>
+    <tr>
+      <td class="column1">Rating (1 to 5):</td>
+      <td class="input"><%= f.number_field :rating, in: 1..5 %></td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.button "SUBMIT" %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>

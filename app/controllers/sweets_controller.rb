@@ -7,7 +7,8 @@ class SweetsController < ApplicationController
 
   # displays sweets on user show
   def show
-    @sweet = Sweet.find(params[:id])
+    @user = current_user
+    @user_sweets = @user.sweet
   end
 
   # creates sweets
@@ -18,8 +19,11 @@ class SweetsController < ApplicationController
   # saves/posts sweets to user show
   def create
     @sweet = Sweet.new(sweet_params)
+    @sweet.user_id = current_user.id
+    # binding.pry
     if @sweet.save
-      redirect_to @user
+      redirect_to user_path(current_user)
+      flash[:notice] = "New Sweet Created!"
     else
       render :new
     end
@@ -29,7 +33,7 @@ class SweetsController < ApplicationController
   def destroy
     @sweet = Sweet.find(params[:id])
     @sweet.destroy
-    redirect_to @user
+    redirect_to user_path(current_user)
   end
 
   private
@@ -41,7 +45,7 @@ class SweetsController < ApplicationController
       :bakery_name,
       :bakery_location,
       :rating,
-      :img
+      :image
     )
   end
 

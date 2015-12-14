@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   # displays user and favorite sweets
   def show
     @user = User.find(params[:id])
-    # @user_sweets = @user.sweets
+    @user_sweets = @user.sweet
+    # binding.pry
+    # TODO: implement user sweets
   end
 
   # creates user
@@ -21,6 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to @user
+      flash[:notice] = "Welcome to your new account! Add a SWEET below!"
     else
       render :new
     end
@@ -36,6 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
+      flash[:notice] = "Account information succesfully saved."
     else
       render :edit
     end
@@ -43,7 +47,7 @@ class UsersController < ApplicationController
 
   # deletes account
   def destroy
-    @user = User.find(params[:id])
+    @user = current_user
     @user.destroy
     redirect_to("/")
   end
@@ -53,7 +57,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :user_name,
-      :avatar,
       :image,
       :password,
       :password_confirmation

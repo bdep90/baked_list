@@ -16,17 +16,82 @@
 html {
   font-family: 'Puritan', sans-serif;
   background-color: bisque;
+  height: 100%;
+}
+
+body {
+  height: 100%; /* reconsider sizing*/
+  width: 100%;
+  margin: 0;
+
 }
 
 .body-container {
-  height: 500px;
+  text-align: center;
+  overflow: scroll;
+  padding: 0px;
+  height: 80%;
+  width: inherit;
 }
 
+.notice {
+  margin: 10px 0px 10px 0px;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px 0px 5px 0px;
+  border: solid 4px #26722D;
+  background-color: #A4E7A0;
+}
+
+.errors {
+  margin: 10px 0px 10px 0px;
+  text-align: center;
+  font-size: 18px;
+  padding: 5px 0px 5px 0px;
+  border: solid 4px grey;
+  background-color: darkgrey;
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* unvisited link */
+a:link {
+  color: black;
+
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: orange;
+}
+
+table {
+  padding-top: 30px;
+}
+
+/*~~~~~~~~*/
 /* navbar */
+/*~~~~~~~~*/
 .navbar {
   background-color: firebrick;
+  color: darkgrey;
   height: 100px;
   margin: 0;
+  font-size: 20px;
 }
 
 .nav-left{
@@ -38,15 +103,26 @@ html {
   float: right;
 }
 
-footer {
-  background-color: firebrick;
-  height: 30px;
-  margin: 0;
+li {
+  list-style-type: none;
 }
 
+footer {
+  background-color: firebrick;
+  height: 50px;
+  margin: 0;
+  font-size: 18px;
+  color: darkgrey;
+  vertical-align: middle;
+}
+
+
+/*~~~~~~~~~~~*/
 /* home page */
+/*~~~~~~~~~~~*/
 .home {
   text-align: center;
+  margin: 0;
 }
 
 .home h1 {
@@ -58,23 +134,102 @@ footer {
 }
 
 .home div {
-  display: table;
+  display: inline-table;
   margin: 0;
   height: 60px;
   width: 100%;
   background-color: orange;
 }
 
-ul#ribbon {
-  margin: 0;
-  padding-left: 0;
-  height: 60px;
+#ribbon {
+  height: 110px;
   width: 100%;
 }
 
-li.ribbon {
-  display: inline;
-  height: 40px;
-  width: 40px;
-  background-color: black;
+#ribbon img {
+  margin-top: 10px;
+  padding: 0px 10px 0px 10px;
+  height: 80px;
+  width: 80px;
+}
+
+#marquee {
+  padding: 15px;
+}
+
+
+/*~~~~~~~*/
+/* forms */
+/*~~~~~~~*/
+form {
+  text-align: center;
+  margin: 0;
+}
+
+form table {
+  display: inline-table;
+  text-align: center;
+  font-size: 20px;
+}
+
+form td {
+  padding-bottom: 10px;
+}
+
+form td.column1 {
+  text-align: right;
+  padding-right: 7px;
+}
+
+form td.input {
+  width: 250px;
+}
+
+form input {
+  width: 230px;
+  height: 30px;
+}
+
+
+/*~~~~~~~~~~~~~~~~*/
+/* user show page */
+/*~~~~~~~~~~~~~~~~*/
+a#new-sweet-link {
+  font-size: 50px;
+  margin: 0;
+}
+
+#user-info-right {
+  text-align: right;
+  margin-right: 10px;
+}
+
+#user-info-right img {
+  border-radius: 50%;
+  border: 2px inset;
+}
+
+/* sweets table */
+table#sweets-container {
+  display: inline-table;
+  text-align: center;
+  margin: 30px 0px 0px 0px;
+  font-size: 20px;
+  width: 33%;
+  background-color: #FFB500;
+  padding: 10px;
+  border: 2px outset;
+  background-image: -webkit-linear-gradient(top, #FFB500, #FF9503);
+  background-image: -moz-linear-gradient(top, #FFB500, #FF9503);
+  background-image: -ms-linear-gradient(top, #FFB500, #FF9503);
+  background-image: -o-linear-gradient(top, #FFB500, #FF9503);
+  background-image: linear-gradient(to bottom, #FFB500, #FF9503);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+}
+
+table td {
+  vertical-align: top;
+  padding-top: 2px;
 }
