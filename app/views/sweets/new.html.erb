@@ -37,11 +37,7 @@
       <td class="column1">Rating (1 to 5):</td>
       <td class="input"><%= f.number_field :rating, in: 1..5 %></td>
     </tr>
-    <tr>
-      <td>
-        <%= f.button "SUBMIT" %>
-      </td>
-    </tr>
-  </table>
+  </table><br>
+  <%= f.button "SUBMIT" %>
   <% end %>
 </div>

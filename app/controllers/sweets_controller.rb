@@ -8,7 +8,7 @@ class SweetsController < ApplicationController
   # displays sweets on user show
   def show
     @user = current_user
-    @user_sweets = @user.sweet
+    @user_sweets = @user.sweets
   end
 
   # creates sweets

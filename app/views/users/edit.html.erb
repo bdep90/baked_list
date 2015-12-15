@@ -8,7 +8,7 @@
 
   <!-- delete account -->
   <p>
-    <%= link_to "DELETE ACCT", user_path(current_user), method: :delete, id: "new-sweet-link" %>
+    <%= link_to "DELETE ACCT", user_path(current_user), method: :delete, id: "delete-sweet-link" %>
   </p>
 
   <!-- form -->
@@ -32,11 +32,7 @@
       <td class="column1">Avatar:</td>
       <td class="input"><%= f.file_field :image %></td>
     </tr>
-    <tr>
-      <td>
-        <%= f.button "SUBMIT" %>
-      </td>
-    </tr>
-  </table>
+  </table><br>
+  <%= f.button "SUBMIT" %>
   <% end %>
 </div>

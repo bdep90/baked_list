@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # displays user and favorite sweets
   def show
     @user = User.find(params[:id])
-    @user_sweets = @user.sweet
+    @user_sweets = @user.sweets
     # binding.pry
     # TODO: implement user sweets
   end

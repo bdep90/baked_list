@@ -52,10 +52,30 @@ body {
   background-color: darkgrey;
 }
 
-a {
+button {
+  background: #a6a6a6;
+  background-image: -webkit-linear-gradient(top, #a6a6a6, #242729);
+  background-image: -moz-linear-gradient(top, #a6a6a6, #242729);
+  background-image: -ms-linear-gradient(top, #a6a6a6, #242729);
+  background-image: -o-linear-gradient(top, #a6a6a6, #242729);
+  background-image: linear-gradient(to bottom, #a6a6a6, #242729);
+  -webkit-border-radius: 30;
+  -moz-border-radius: 30;
+  border-radius: 30px;
+  font-family: Georgia;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
   text-decoration: none;
-  font-size: 18px;
-  padding: 10px;
+}
+
+button:hover {
+  background: #ab9aab;
+  background-image: -webkit-linear-gradient(top, #ab9aab, #2a2e30);
+  background-image: -moz-linear-gradient(top, #ab9aab, #2a2e30);
+  background-image: -ms-linear-gradient(top, #ab9aab, #2a2e30);
+  background-image: -o-linear-gradient(top, #ab9aab, #2a2e30);
+  background-image: linear-gradient(to bottom, #ab9aab, #2a2e30);
+  text-decoration: none;
 }
 
 /* unvisited link */
@@ -190,6 +210,12 @@ form input {
   height: 30px;
 }
 
+a#delete-sweet-link {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+}
+
 
 /*~~~~~~~~~~~~~~~~*/
 /* user show page */
@@ -197,6 +223,8 @@ form input {
 a#new-sweet-link {
   font-size: 50px;
   margin: 0;
+  text-decoration: none;
+  text-shadow: -2px 2px 3px darkgrey;  
 }
 
 #user-info-right {
