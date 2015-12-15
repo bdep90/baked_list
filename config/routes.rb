@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   get '/signout'  => 'sessions#destroy'
 
   resources :users do
-    resources :sweets, only: [:index, :show, :new, :create, :destroy] do
-      resources :food2fork, only: [:index, :show]
-    end
+    resources :sweets, only: [:index, :show, :new, :create, :destroy]
   end
 
   # resources :users, shallow: true do

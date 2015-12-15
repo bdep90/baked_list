@@ -20,10 +20,23 @@
   <!-- sweets index --><!-- create new sweet -->
   <div><%= link_to "*SWEETS*", new_user_sweet_path(@user), id: "new-sweet-link" %></div>
 
+  <!-- recipes search -->
+  <%= form_tag "/users/#{current_user.id}/sweets" do %>
+  <table>
+    <tr>
+      <td>
+        <%= text_field_tag :q %>
+        <%= button_tag "SUBMIT" %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+
+
   <table id="sweets-container">
     <% @user_sweets.each do |sweet| %>
     <tr>
-      <th><u></u></th>
+      <th></th>
       <th><u>SWEET</u></th>
       <th><u>DEETS</u></th>
       <th><u>RATING</u></th>
@@ -31,14 +44,19 @@
       <th><u>LOCATION</u></th>
     </tr>
     <tr>
-      <td><%= image_tag(sweet.image, size: "140x160") %></td>
-      <td><%= sweet.name %></td>
+      <td>
+        <%= sweet.name %>
+        <%= image_tag(sweet.image, size: "140x160") %>
+
+      </td>
       <td><%= sweet.description %></td>
       <td><%= sweet.rating %></td>
       <td><%= sweet.bakery_name %></td>
       <td><%= sweet.bakery_location %></td>
       <td><%= link_to "X", "/users/#{current_user.id}/sweets/#{sweet.id}", method: :delete %></td>
     </tr>
+
+
     <% end %>
   </table>
 
@@ -48,5 +66,7 @@
    <a href="#"><%= image_tag(sweet.image, size: "80x100") %></a>
    <% end %>
   </div>
+
+
 
 </div>
