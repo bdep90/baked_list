@@ -1,9 +1,20 @@
-<!-- recipe title, image_url, source_url -->
-<% @res['recipes'].each do |recipe| %>
-<ul id="recipes">
-  <li class="recipes">
-    <a href="<%="#{recipe['source_url']}"%>" target="_blank"><%= recipe['title'] %></a><br>
-    <%= image_tag("#{recipe['image_url']}", size: "120x120") %>
-  </li>
-</ul>
-<% end %>
+<div id="recipes">
+  <h1>
+    <%= link_to "*Top Rated Recipes*", "/users/#{current_user.id}" %>
+  </h1>
+  <div>
+    Source: Food2Fork
+  </div>
+  <!-- recipe title, image_url, source_url -->
+  <% @res['recipes'].each do |recipe| %>
+  <ul id="recipes">
+    <a href="<%="#{recipe['source_url']}"%>" target="_blank">
+      <li class="recipes">
+        <%= recipe['title'] %><br>
+        <%= image_tag("#{recipe['image_url']}", size: "120x120") %>
+      </li>
+    </a>
+  </ul>
+  <% end %>
+
+</div>

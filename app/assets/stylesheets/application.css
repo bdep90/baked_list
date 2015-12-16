@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+/*~~~~~~~~~~*/
+/* defaults */
+/*~~~~~~~~~~*/
 html {
   font-family: 'Puritan', sans-serif;
   background-color: bisque;
@@ -20,15 +24,14 @@ html {
 }
 
 body {
-  height: 100%; /* reconsider sizing*/
+  height: 100%; /* reconsider sizing */
   width: 100%;
   margin: 0;
-
 }
 
 .body-container {
   text-align: center;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 0px;
   height: 80%;
   width: inherit;
@@ -52,6 +55,11 @@ body {
   background-color: darkgrey;
 }
 
+table {
+  padding-top: 30px;
+}
+
+/* all buttons */
 button {
   background: #a6a6a6;
   background-image: -webkit-linear-gradient(top, #a6a6a6, #242729);
@@ -78,36 +86,38 @@ button:hover {
   text-decoration: none;
 }
 
-/* unvisited link */
-a:link {
-  color: black;
-
+a {
+  text-decoration: none;
 }
 
-/* visited link */
+/* all links */
+a:link {
+  color: black;
+}
+
 a:visited {
   color: black;
 }
 
-/* mouse over link */
 a:hover {
   color: red;
 }
 
-/* selected link */
 a:active {
   color: orange;
 }
 
-table {
-  padding-top: 30px;
-}
+
 
 /*~~~~~~~~*/
 /* navbar */
 /*~~~~~~~~*/
 .navbar {
-  background-color: firebrick;
+  background-image: -webkit-linear-gradient(top, firebrick, maroon);
+  background-image: -moz-linear-gradient(top, firebrick, maroon));
+  background-image: -ms-linear-gradient(top, firebrick, maroon));
+  background-image: -o-linear-gradient(top, firebrick, maroon));
+  background-image: linear-gradient(to bottom, firebrick, maroon));
   color: darkgrey;
   height: 100px;
   margin: 0;
@@ -118,23 +128,20 @@ table {
   float: left;
 }
 
-.nav-right {
-  list-style: none;
-  float: right;
-}
-
-li {
-  list-style-type: none;
-}
-
 footer {
-  background-color: firebrick;
-  height: 50px;
+  background-image: -webkit-linear-gradient(top, maroon, firebrick);
+  background-image: -moz-linear-gradient(top, maroon, firebrick));
+  background-image: -ms-linear-gradient(top, maroon, firebrick));
+  background-image: -o-linear-gradient(top, maroon, firebrick));
+  background-image: linear-gradient(to bottom, maroon, firebrick));
+  height: 40px;
   margin: 0;
   font-size: 18px;
   color: darkgrey;
-  vertical-align: middle;
+  text-align: right;
+  padding: 15px 20px 0px 0px;
 }
+
 
 
 /*~~~~~~~~~~~*/
@@ -147,6 +154,15 @@ footer {
 
 .home h1 {
   font-size: 80px;
+  margin-bottom: 0;
+}
+
+.home h2 {
+  margin-top: 0;
+}
+
+.home a {
+  text-decoration: none;
 }
 
 .home p {
@@ -159,6 +175,14 @@ footer {
   height: 60px;
   width: 100%;
   background-color: orange;
+}
+
+a.home-links {
+  color: sienna;
+}
+
+a.home-links:hover {
+  color: black;
 }
 
 #ribbon {
@@ -176,6 +200,7 @@ footer {
 #marquee {
   padding: 15px;
 }
+
 
 
 /*~~~~~~~*/
@@ -217,61 +242,140 @@ a#delete-sweet-link {
 }
 
 
+
 /*~~~~~~~~~~~~~~~~*/
 /* user show page */
 /*~~~~~~~~~~~~~~~~*/
-a#new-sweet-link {
-  font-size: 50px;
-  margin: 0;
-  text-decoration: none;
-  text-shadow: -2px 2px 3px darkgrey;
+#user-show {
+  width: 100%;
 }
 
-#user-info-right {
-  text-align: right;
-  margin-right: 10px;
+/* left container */
+#user-show-left {
+  float: left;
+  width: 20%;
+  position: absolute;
 }
 
-#user-info-right img {
+#user-info-left {
+  float: left;
+  background-color: firebrick;
+  width: 200px;
+  border-radius: 15px;
+  padding: 20px 10px 10px 15px;
+  margin: 30px 0px 0px -20px;
+  color: lightgrey;
+}
+
+#user-info-left img {
   border-radius: 50%;
   border: 2px inset;
 }
 
-/* sweets table */
-table#sweets-container {
-  display: inline-table;
-  text-align: center;
-  margin: 30px 0px 0px 0px;
-  font-size: 20px;
-  width: 33%;
-  background-color: #FFB500;
+#signout-link {
+  color: orange;
+  text-decoration: none;
+}
+
+#signout-link:hover {
+  color: lightgrey;
+}
+
+/* right container */
+#user-show-right {
+  float: right;
+  width: 85%;
+}
+
+#user-show-header h1 {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+a#new-sweet-link {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* sweets container */
+#sweets-container {
+  display: -webkit-inline-box;
+  font-size: 18px;
+  width: 90%;
+  overflow-y: scroll;
+}
+
+ul.sweets {
+  width: 100px;
   padding: 10px;
-  border: 2px outset;
   background-image: -webkit-linear-gradient(top, #FFB500, #FF9503);
   background-image: -moz-linear-gradient(top, #FFB500, #FF9503);
   background-image: -ms-linear-gradient(top, #FFB500, #FF9503);
   background-image: -o-linear-gradient(top, #FFB500, #FF9503);
   background-image: linear-gradient(to bottom, #FFB500, #FF9503);
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
-  border-radius: 8px;
 }
 
-table td {
-  vertical-align: top;
-  padding-top: 2px;
+ul#sweets1 {
+  width: 150px;
+  margin-left: 20px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+ul#sweets2 {
+  border-radius: 0;
+}
+
+ul#sweets3 {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+li.sweets {
+  margin: 0;
+  list-style-type: none;
+}
+
+li.sweets img {
+  height: 140px;
+  width: 140px;
+}
+
+a#delete-sweet-link {
+  font-size: 14px;
+  font: italic;
+  background-color: darkgrey;
+  padding: 2px;
+  border: 1px inset;
 }
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* recipes show (sweets index) */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+div#recipes {
+  padding-bottom: 20px;
+  margin: 0px 100px 0px 100px;
+}
+
+div#recipes h1 {
+  font-size: 50px;
+  text-shadow: -2px 2px 2px darkgrey;
+}
+
 ul#recipes {
-  width: 100%;
+  padding: 30px 0px 30px 0px;
   text-align: center;
-  display: inline-block;
+  padding-left: 0px;
+  display: inline;
 }
 
 li.recipes {
-  width: 30%;
+  border: 2px solid black;
+  width: 14%;
+  height: 180px;
+  padding: 10px 10px 0px 10px;
+  margin: 5px;
+  list-style: none;
+  display: inline-table;
 }
