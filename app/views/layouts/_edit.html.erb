@@ -1,0 +1,11 @@
+<header class="navbar">
+  <div class="nav-left">
+    <a href="/signout">
+      <%= image_tag("http://www.endlessicons.com/wp-content/uploads/2012/09/cupcake-icon-614x460.png", size: "110x100", class: "cupcake-halo") %>
+    </a>
+  </div>
+  <div class="nav-right">
+    <%= link_to "YOUR PROFILE", "/users/#{current_user.id}" %> •
+    <%= link_to "DELETE ACCOUNT", user_path(current_user), method: :delete %>
+  </div>
+</header>

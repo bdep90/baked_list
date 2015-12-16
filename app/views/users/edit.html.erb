@@ -1,0 +1,37 @@
+<%= render :partial => 'layouts/edit' %>
+
+<div class="form">
+  <!-- errors --> <%# TODO: set unique messages for errors %>
+  <% if @user.errors.any? %>
+    <div class="errors">
+      <% @user.errors.full_messages.each do |msg| %>
+        <%= msg %><br>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!-- form -->
+  <%= form_for @user, url: user_path(@user), html: {multipart: true}, method: :put do |f| %>
+  <table class="edit-user-form">
+    <tr>
+      <td class="column1">Username:</td>
+      <td class="input"><%= f.text_field :user_name, :placeholder => "must be between 6 and 10 characters long"%></td>
+    </tr>
+    <tr>
+      <td class="column1">Password:</td>
+      <td class="input"><%= f.password_field :password, :placeholder => "must be between 6 and 12 characters long"%></td>
+    </tr>
+    <tr>
+      <td class="column1">Password Confirmation:</td>
+      <td class="input">
+        <%= f.password_field :password_confirmation, :placeholder => "please verify password" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="column1">Avatar:</td>
+      <td class="input"><%= f.file_field :image %></td>
+    </tr>
+  </table><br>
+  <%= f.button "SUBMIT" %>
+  <% end %>
+</div>

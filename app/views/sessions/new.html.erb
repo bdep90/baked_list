@@ -1,0 +1,18 @@
+<%= render :partial => 'layouts/sessions' %>
+
+<div class="form">
+  <!-- sign in form -->
+  <%= form_tag "/signin" do %>
+  <table class="signin-form">
+    <tr>
+      <td class="column1">Username:</td>
+      <td class="input"><%= text_field_tag :user_name %></td>
+    </tr>
+    <tr>
+      <td class="column1">Password:</td>
+      <td class="input"><%= password_field_tag :password %></td>
+    </tr>
+  </table><br>
+  <%= button_tag "SUBMIT" %>
+  <% end %>
+</div>
