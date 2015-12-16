@@ -1,12 +1,12 @@
 require 'unirest'
+require 'JSON'
 class SweetsController < ApplicationController
 
   # lists all sweets on user show
   # recipes show
   def index
     # @sweets = Sweet.all
-
-    @response = Unirest.get "https://community-food2fork.p.mashape.com/search",
+    response = Unirest.get "https://community-food2fork.p.mashape.com/search",
     headers:{
       "X-Mashape-Key" => MASHKEY,
       "Accept" => "application/json"
@@ -16,6 +16,9 @@ class SweetsController < ApplicationController
       :q => params[:q],
       :sort => "r"
     }
+
+    @res = response.body
+
   end
 
   # displays sweets on user show
@@ -31,6 +34,7 @@ class SweetsController < ApplicationController
 
   # saves/posts sweets to user show
   def create
+    puts "I'm being super annoying"
     @sweet = Sweet.new(sweet_params)
     @sweet.user_id = current_user.id
     # binding.pry
@@ -52,13 +56,13 @@ class SweetsController < ApplicationController
   private
   def sweet_params
     params.require(:sweet).permit(
+      :q,
       :name,
       :description,
       :bakery_name,
       :bakery_location,
       :rating,
-      :image,
-      :q
+      :image
     )
   end
 

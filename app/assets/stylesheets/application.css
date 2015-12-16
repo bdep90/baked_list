@@ -224,7 +224,7 @@ a#new-sweet-link {
   font-size: 50px;
   margin: 0;
   text-decoration: none;
-  text-shadow: -2px 2px 3px darkgrey;  
+  text-shadow: -2px 2px 3px darkgrey;
 }
 
 #user-info-right {
@@ -260,4 +260,18 @@ table#sweets-container {
 table td {
   vertical-align: top;
   padding-top: 2px;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* recipes show (sweets index) */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+ul#recipes {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+li.recipes {
+  width: 30%;
 }

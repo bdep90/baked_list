@@ -6,12 +6,9 @@
 
   <div id="user-info-right">
     <!-- user info -->
-    <div>
-    <a href="<%="/users/#{@user.id}/edit"%>"><%= image_tag(@user.image, size: "120x120") %></a>
-    </div>
-    <div>
-      <%= link_to "Hi #{@user.user_name}!", edit_user_path, id: "edit-user-link" %>
-    </div>
+    <a href="<%="/users/#{@user.id}/edit"%>">
+      <%= image_tag(@user.image, size: "80x80") %>
+    </a><br>
   </div>
 
   <!-- search bar -->
@@ -21,52 +18,57 @@
   <div><%= link_to "*SWEETS*", new_user_sweet_path(@user), id: "new-sweet-link" %></div>
 
   <!-- recipes search -->
-  <%= form_tag "/users/#{current_user.id}/sweets" do %>
+  <%= form_tag "/users/#{current_user.id}/sweets", method: :get do %>
   <table>
     <tr>
       <td>
-        <%= text_field_tag :q %>
-        <%= button_tag "SUBMIT" %>
+        <%= text_field_tag :q, params[:q]%>
+        <%= button_tag "GET RECIPES" %>
       </td>
     </tr>
   </table>
   <% end %>
 
-
+  <!-- sweets show -->
   <table id="sweets-container">
     <% @user_sweets.each do |sweet| %>
     <tr>
-      <th></th>
-      <th><u>SWEET</u></th>
-      <th><u>DEETS</u></th>
-      <th><u>RATING</u></th>
-      <th><u>BAKERY</u></th>
+      <th>
+        <%= sweet.name %>
+        <%= link_to "X", "/users/#{current_user.id}/sweets/#{sweet.id}", method: :delete %>
+      </th>
       <th><u>LOCATION</u></th>
+      <th><u>NOTES</u></th>
     </tr>
     <tr>
+      <td><%= image_tag(sweet.image, size: "150x140") %></td>
       <td>
-        <%= sweet.name %>
-        <%= image_tag(sweet.image, size: "140x160") %>
-
+        <%= sweet.bakery_name %><br>
+        <%= sweet.bakery_location %>
       </td>
       <td><%= sweet.description %></td>
-      <td><%= sweet.rating %></td>
-      <td><%= sweet.bakery_name %></td>
-      <td><%= sweet.bakery_location %></td>
-      <td><%= link_to "X", "/users/#{current_user.id}/sweets/#{sweet.id}", method: :delete %></td>
     </tr>
-
-
+    <tr>
+      <% if sweet.rating === 1 %>
+      <td><span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></td>
+      <% elsif sweet.rating === 2 %>
+      <td><span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span></td>
+      <% elsif sweet.rating === 3 %>
+      <td><span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span></td>
+      <% elsif sweet.rating === 4 %>
+      <td><span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span></td>
+      <% elsif sweet.rating === 5 %>
+      <td><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></td>
+      <% end %>
+    </tr>
     <% end %>
   </table>
 
   <div class="slideshwo">
-   <% @user_sweets.each do |sweet| %>
-   <div><%= sweet.name %></div>
-   <a href="#"><%= image_tag(sweet.image, size: "80x100") %></a>
-   <% end %>
+    <% @user_sweets.each do |sweet| %>
+      <div><%= sweet.name %></div>
+      <a href="#"><%= image_tag(sweet.image, size: "80x100") %></a>
+    <% end %>
   </div>
-
-
 
 </div>

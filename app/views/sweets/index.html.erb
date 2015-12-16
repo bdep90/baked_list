@@ -1,1 +1,9 @@
-<%= @response.body %>
+<!-- recipe title, image_url, source_url -->
+<% @res['recipes'].each do |recipe| %>
+<ul id="recipes">
+  <li class="recipes">
+    <a href="<%="#{recipe['source_url']}"%>" target="_blank"><%= recipe['title'] %></a><br>
+    <%= image_tag("#{recipe['image_url']}", size: "120x120") %>
+  </li>
+</ul>
+<% end %>
