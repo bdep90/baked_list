@@ -1,10 +1,14 @@
+<%= render :partial => 'layouts/sessions' %>
+
 <div class="form">
   <!-- errors --> <%# TODO: set unique messages for errors %>
+  <% if @user.errors.any? %>
   <div class="errors">
     <% @user.errors.full_messages.each do |msg| %>
       <%= msg %><br>
     <% end %>
   </div>
+  <% end %>
 
   <!-- form -->
   <%= form_for(@user, html: {multipart: true}) do |f| %>

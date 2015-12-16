@@ -1,80 +1,68 @@
-<!-- flash -->
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
+<%= render :partial => 'layouts/users' %>
 <div id="user-show">
-  <!-- user info -->
-  <div id="user-show-left">
-    <div id="user-info-left">
-      ACCOUNT INFORMATION<br>
-      <a href="<%="/users/#{@user.id}/edit"%>">
-        <%= image_tag(@user.image, size: "80x80") %>
-      </a><br>
-      <%= link_to "SIGN OUT", "/signout", id: "signout-link" %>
-    </div>
+  <!-- flash -->
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <!-- header -->
+  <div id="user-show-header">
+    <!-- sweets index --><!-- create new sweet -->
+    <h1>*SWEETS*</h1>
+    <div><%= link_to "NEW SWEET", new_user_sweet_path(@user), id: "new-sweet-link" %></div>
   </div>
 
-  <!-- sweets info -->
-  <div id="user-show-right">
-    <!-- header -->
-    <div id="user-show-header">
-      <!-- sweets index --><!-- create new sweet -->
-      <h1>*SWEETS*</h1>
-      <div><%= link_to "NEW SWEET", new_user_sweet_path(@user), id: "new-sweet-link" %></div>
-    </div>
+  <!-- recipes search -->
+  <%= form_tag "/users/#{current_user.id}/sweets", method: :get do %>
+  <table>
+    <tr>
+      <td>
+        <%= text_field_tag :q, params[:q]%>
+        <%= button_tag "GET RECIPES" %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
 
-    <!-- recipes search -->
-    <%= form_tag "/users/#{current_user.id}/sweets", method: :get do %>
-    <table>
-      <tr>
-        <td>
-          <%= text_field_tag :q, params[:q]%>
-          <%= button_tag "GET RECIPES" %>
-        </td>
-      </tr>
-    </table>
+  <!-- sweets show -->
+  <div id="sweets-container">
+    <% @user_sweets.each do |sweet| %>
+    <ul class="sweets" id="sweets1">
+      <li class="sweets">
+        <font color="darkblue"><%= sweet.name %></font><br>
+        <%= image_tag(sweet.image) %><br>
+        <% if sweet.rating === 1 %>
+        <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        <% elsif sweet.rating === 2 %>
+        <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>
+        <% elsif sweet.rating === 3 %>
+        <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+        <% elsif sweet.rating === 4 %>
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+        <% elsif sweet.rating === 5 %>
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        <% end %><br>
+      </li>
+      <li class="sweets">&nbsp;</li>
+      <li class="sweets">
+        <%= link_to "DELETE", "/users/#{current_user.id}/sweets/#{sweet.id}", method: :delete, id: "delete-sweet-link" %>
+      </li>
+    </ul>
+    <ul class="sweets" id="sweets2">
+      <li class="sweets">
+        <u>LOCATION</u><br>
+        <%= sweet.bakery_name %><br>
+        <%= sweet.bakery_location %>
+      </li>
+    </ul>
+    <ul class="sweets" id="sweets3">
+      <li class="sweets">
+        <u>NOTES</u><br>
+        <%= sweet.description %>
+      </li>
+    </ul>
     <% end %>
-
-    <!-- sweets show -->
-    <div id="sweets-container">
-      <% @user_sweets.each do |sweet| %>
-      <ul class="sweets" id="sweets1">
-        <li class="sweets">
-          <font color="darkblue"><%= sweet.name %></font><br>
-          <%= image_tag(sweet.image) %><br>
-          <% if sweet.rating === 1 %>
-          <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-          <% elsif sweet.rating === 2 %>
-          <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>
-          <% elsif sweet.rating === 3 %>
-          <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
-          <% elsif sweet.rating === 4 %>
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-          <% elsif sweet.rating === 5 %>
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-          <% end %><br>
-        </li>
-        <li class="sweets">&nbsp;</li>
-        <li class="sweets">
-          <%= link_to "DELETE", "/users/#{current_user.id}/sweets/#{sweet.id}", method: :delete, id: "delete-sweet-link" %>
-        </li>
-      </ul>
-      <ul class="sweets" id="sweets2">
-        <li class="sweets">
-          <u>LOCATION</u><br>
-          <%= sweet.bakery_name %><br>
-          <%= sweet.bakery_location %>
-        </li>
-      </ul>
-      <ul class="sweets" id="sweets3">
-        <li class="sweets">
-          <u>NOTES</u><br>
-          <%= sweet.description %>
-        </li>
-
-      </ul>
-      <% end %>
-    </div>
   </div>
+
+
 </div>

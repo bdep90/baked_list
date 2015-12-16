@@ -24,16 +24,14 @@ html {
 }
 
 body {
-  height: 100%; /* reconsider sizing */
   width: 100%;
   margin: 0;
+  overflow: scroll;
 }
 
 .body-container {
   text-align: center;
-  overflow-y: scroll;
   padding: 0px;
-  height: 80%;
   width: inherit;
 }
 
@@ -42,7 +40,7 @@ body {
   text-align: center;
   font-size: 18px;
   padding: 5px 0px 5px 0px;
-  border: solid 4px #26722D;
+  border: solid 3px #26722D;
   background-color: #A4E7A0;
 }
 
@@ -51,7 +49,7 @@ body {
   text-align: center;
   font-size: 18px;
   padding: 5px 0px 5px 0px;
-  border: solid 4px grey;
+  border: solid 3px grey;
   background-color: darkgrey;
 }
 
@@ -86,16 +84,23 @@ button:hover {
   text-decoration: none;
 }
 
-a {
-  text-decoration: none;
+.navbar img {
+  border-radius: 50%;
+}
+
+img.cupcake-halo:hover {
+  background-color: red;
+  opacity: .2;
 }
 
 /* all links */
-a:link {
+a {
+  text-decoration: none;
+  font-size: 22px;
   color: black;
 }
 
-a:visited {
+a:link {
   color: black;
 }
 
@@ -118,14 +123,26 @@ a:active {
   background-image: -ms-linear-gradient(top, firebrick, maroon));
   background-image: -o-linear-gradient(top, firebrick, maroon));
   background-image: linear-gradient(to bottom, firebrick, maroon));
-  color: darkgrey;
   height: 100px;
   margin: 0;
+  top: 0;
   font-size: 20px;
+  width: 100%;
 }
 
-.nav-left{
+.nav-left {
   float: left;
+}
+
+.nav-right {
+  float: right;
+  padding: 40px 20px 0px 0px;
+  vertical-align: middle;
+}
+
+div#user-info.nav-right {
+  padding: 15px 20px 0px 0px;
+  font-size: 22px;
 }
 
 footer {
@@ -134,12 +151,19 @@ footer {
   background-image: -ms-linear-gradient(top, maroon, firebrick));
   background-image: -o-linear-gradient(top, maroon, firebrick));
   background-image: linear-gradient(to bottom, maroon, firebrick));
-  height: 40px;
   margin: 0;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  text-align: right;
+  padding-top: 15px;
   font-size: 18px;
   color: darkgrey;
-  text-align: right;
-  padding: 15px 20px 0px 0px;
+}
+
+footer div {
+  padding: 0px 10px 0px 0px;
 }
 
 
@@ -157,14 +181,6 @@ footer {
   margin-bottom: 0;
 }
 
-.home h2 {
-  margin-top: 0;
-}
-
-.home a {
-  text-decoration: none;
-}
-
 .home p {
   font-size: 40px;
 }
@@ -175,14 +191,6 @@ footer {
   height: 60px;
   width: 100%;
   background-color: orange;
-}
-
-a.home-links {
-  color: sienna;
-}
-
-a.home-links:hover {
-  color: black;
 }
 
 #ribbon {
@@ -235,79 +243,49 @@ form input {
   height: 30px;
 }
 
-a#delete-sweet-link {
-  text-decoration: none;
-  font-size: 20px;
-  padding: 10px;
-}
-
 
 
 /*~~~~~~~~~~~~~~~~*/
 /* user show page */
 /*~~~~~~~~~~~~~~~~*/
-#user-show {
+div#user-show {
   width: 100%;
+  padding-bottom: 30px;
 }
 
-/* left container */
-#user-show-left {
-  float: left;
-  width: 20%;
-  position: absolute;
-}
-
-#user-info-left {
-  float: left;
-  background-color: firebrick;
-  width: 200px;
-  border-radius: 15px;
-  padding: 20px 10px 10px 15px;
-  margin: 30px 0px 0px -20px;
-  color: lightgrey;
-}
-
-#user-info-left img {
-  border-radius: 50%;
-  border: 2px inset;
-}
-
-#signout-link {
-  color: orange;
-  text-decoration: none;
-}
-
-#signout-link:hover {
-  color: lightgrey;
-}
-
-/* right container */
-#user-show-right {
-  float: right;
-  width: 85%;
+#user-show {
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 #user-show-header h1 {
-  font-size: 50px;
+  font-size: 60px;
+  text-shadow: -2px 2px 2px darkgrey;
   margin-bottom: 0;
 }
 
-a#new-sweet-link {
-  font-size: 18px;
-  text-decoration: none;
+#new-sweet-link {
+  margin: 0;
+  font-size: 20px;
+  color: sienna;
 }
+
+#new-sweet-link:hover{
+  color: black;
+}
+
 
 /* sweets container */
 #sweets-container {
   display: -webkit-inline-box;
   font-size: 18px;
   width: 90%;
-  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 ul.sweets {
   width: 100px;
-  padding: 10px;
+  padding: 12px;
   background-image: -webkit-linear-gradient(top, #FFB500, #FF9503);
   background-image: -moz-linear-gradient(top, #FFB500, #FF9503);
   background-image: -ms-linear-gradient(top, #FFB500, #FF9503);
@@ -342,20 +320,18 @@ li.sweets img {
 }
 
 a#delete-sweet-link {
-  font-size: 14px;
-  font: italic;
   background-color: darkgrey;
-  padding: 2px;
-  border: 1px inset;
+  border: 2px inset;
+  padding: 4px;
+  font-size: 14px;
 }
 
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/* recipes show (sweets index) */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* recipes show page (sweets index) */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 div#recipes {
-  padding-bottom: 20px;
-  margin: 0px 100px 0px 100px;
+  margin-bottom: 70px;
 }
 
 div#recipes h1 {
@@ -368,14 +344,16 @@ ul#recipes {
   text-align: center;
   padding-left: 0px;
   display: inline;
+  margin: 0px 20px 0px 20px;
 }
 
 li.recipes {
   border: 2px solid black;
-  width: 14%;
-  height: 180px;
-  padding: 10px 10px 0px 10px;
-  margin: 5px;
+  width: 15%;
+  padding: 5px;
+  margin: 10px;
   list-style: none;
   display: inline-table;
+  font-size: 16px;
+  overflow: scroll;
 }

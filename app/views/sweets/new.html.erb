@@ -1,10 +1,14 @@
+<%= render :partial => 'layouts/sweets' %>
+
 <div class="form">
   <%# TODO: add errors & set unique messages for errors %>
+  <% if @sweet.errors.any? %>
   <div class="errors">
     <% @sweet.errors.full_messages.each do |msg| %>
       <%= msg %><br>
     <% end %>
   </div>
+  <% end %>
 
   <!-- form -->
   <%= form_for(:sweet, url: user_sweets_path, html: {multipart: true}) do |f| %>
