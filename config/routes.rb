@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  get '/signin' => 'sessions#new'
-  post '/signin' => 'sessions#create'
-  get '/signout' => 'sessions#destroy'
+  get '/about'    => 'welcome#about'
+  get '/signin'   => 'sessions#new'
+  post '/signin'  => 'sessions#create'
+  get '/signout'  => 'sessions#destroy'
 
-  resources :users
-  resources :bakeries do
+  resources :users do
     resources :sweets, only: [:index, :show, :new, :create, :destroy]
   end
 

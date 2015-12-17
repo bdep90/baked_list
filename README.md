@@ -1,24 +1,6 @@
-### BakedList
+<<<<<<< HEAD:README.md
 
-##### Track every sweet you meet.  
-[Users Stories](users_stories.md)
-
-###### Technologies Used:
-- Ruby 4
-- [Food2Fork API](http://food2fork.com/about/api)
-
-###### Dependencies:
-- bcrypt - authentication
-- pry-rails - testing
-- paperclip - upload local files
-- unirest - HTTP requests to Food2Fork
-
-
-
-
-
-<!--
-== README
+>>>>>>> 4621948039b66dc45b65a50015844ad6fdec800a:README.md
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

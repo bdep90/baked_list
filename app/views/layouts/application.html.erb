@@ -2,13 +2,19 @@
 <html>
 <head>
   <title>BakedList</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Puritan:400,700italic" rel="stylesheet" type="text/css">
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="body-container">
+    <%= yield %>
+  </div>
+  <footer>
+    <div>
+      &copy;BakedList 2015
+    </div>
+  </footer>
 </body>
 </html>
