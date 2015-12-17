@@ -1,3 +1,23 @@
+### BakedList
+
+##### Track every sweet you meet.  
+[Users Stories](users_stories.md)
+
+###### Technologies Used:
+- Ruby 4
+- [Food2Fork API](http://food2fork.com/about/api)
+
+###### Dependencies:
+- bcrypt - authentication
+- pry-rails - testing
+- paperclip - upload local files
+- unirest - HTTP requests to Food2Fork
+
+
+
+
+
+<!--
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -25,4 +45,4 @@ Things you may want to cover:
 
 
 Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+<tt>rake doc:app</tt>. -->
