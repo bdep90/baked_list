@@ -119,10 +119,10 @@ a:active {
 /*~~~~~~~~*/
 .navbar {
   background-image: -webkit-linear-gradient(top, firebrick, maroon);
-  background-image: -moz-linear-gradient(top, firebrick, maroon));
-  background-image: -ms-linear-gradient(top, firebrick, maroon));
-  background-image: -o-linear-gradient(top, firebrick, maroon));
-  background-image: linear-gradient(to bottom, firebrick, maroon));
+  background-image: -moz-linear-gradient(top, firebrick, maroon);
+  background-image: -ms-linear-gradient(top, firebrick, maroon);
+  background-image: -o-linear-gradient(top, firebrick, maroon);
+  background-image: linear-gradient(to bottom, firebrick, maroon);
   height: 100px;
   margin: 0;
   top: 0;
