@@ -147,10 +147,10 @@ div#user-info.nav-right {
 
 footer {
   background-image: -webkit-linear-gradient(top, maroon, firebrick);
-  background-image: -moz-linear-gradient(top, maroon, firebrick));
-  background-image: -ms-linear-gradient(top, maroon, firebrick));
-  background-image: -o-linear-gradient(top, maroon, firebrick));
-  background-image: linear-gradient(to bottom, maroon, firebrick));
+  background-image: -moz-linear-gradient(top, maroon, firebrick);
+  background-image: -ms-linear-gradient(top, maroon, firebrick);
+  background-image: -o-linear-gradient(top, maroon, firebrick);
+  background-image: linear-gradient(to bottom, maroon, firebrick);
   margin: 0;
   height: 40px;
   width: 100%;
