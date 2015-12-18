@@ -1,4 +1,5 @@
 require 'unirest'
+require 'json'
 class SweetsController < ApplicationController
 
   # lists all sweets on user show
