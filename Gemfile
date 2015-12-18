@@ -3,9 +3,8 @@ source 'https://rubygems.org'
 gem 'bcrypt'
 gem 'pry-rails'
 gem 'paperclip'
-<<<<<<< HEAD
-
->>>>>>> 4621948039b66dc45b65a50015844ad6fdec800a
+gem 'httparty'
+gem 'json'
 gem 'unirest'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
